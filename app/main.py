@@ -10,7 +10,7 @@ class Person:
 
 def create_person_list(people: list) -> list:
     Person.people = {}
-    [Person(p["name"], p["age"]) for p in people]
+    person_instances = [Person(p["name"], p["age"]) for p in people]
 
     for person in people:
         current_person = Person.people[person["name"]]
@@ -23,4 +23,4 @@ def create_person_list(people: list) -> list:
             husband_name = person["husband"]
             current_person.husband = Person.people[husband_name]
 
-    return list(Person.people.values())
+    return person_instances
